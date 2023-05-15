@@ -1,0 +1,428 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+/* FONTS */
+@font-face {
+    font-family: 'georgia normal';
+    src: url('../assets/Fonts/georgia.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'comic normal';
+    src: url('../assets/Fonts/comic.ttf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'georgia bold';
+    src: url('../assets/Fonts/georgiab.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'georgia italic';
+    src: url('../assets/Fonts/georgiai.ttf');
+    font-weight: italic;
+}
+
+/* GENERAL */
+body {
+    background: #33b7e2;
+    font-family: 'georgia normal', serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.06rem;
+}
+
+
+.main-content {
+    margin: 0 25px;
+}
+
+/* OVERLAY */
+body.overlay {
+    overflow: hidden;
+}
+
+body.overlay::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(84, 84, 84, 0.5);
+}
+
+h1,
+h3,
+h4 {
+    margin: 0;
+}
+
+/* HEADER */
+#header a {
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-family: 'comic normal', serif;
+    font-size: 55px;
+    text-shadow: 1px 1px 2px rgba(56, 56, 56, 0.4)
+}
+
+h1 a .word-1 {
+    color: #ff7878;
+}
+
+h1 a .word-2 {
+    color: #ffd86f;
+}
+
+.header-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+
+/* SIDEBAR MENU */
+#header-burger {
+    padding: 35px 0 20px 105px;
+}
+
+#header-burger a {
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-family: 'comic normal', serif;
+    font-size: 33px;
+    text-shadow: 1px 1px 2px rgba(56, 56, 56, 1);
+}
+
+#header-burger .word-1 {
+    color: #ff7878;
+}
+
+#header-burger .word-2 {
+    color: #ffd86f;
+}
+
+.container-burger {
+    display: none;
+}
+
+body .burger-menu .container-burger {
+    position: fixed;
+    background: linear-gradient(40deg, #ffd86f, #ff7878);
+    display: block;
+    left: -350px;
+    top: 0;
+    height: 100vh;
+    width: 350px;
+    transition: left 0.5s;
+    z-index: 2;
+    -webkit-transition: left 0.5s ease;
+    -moz-transition: left 0.5s;
+    -ms-transition: left 0.5s;
+    -o-transition: left 0.5s;
+}
+
+body.burger-menu .container-burger {
+    left: 0;
+}
+
+#sidebar-menu .nav-item {
+    margin-bottom: 2px;
+}
+
+#sidebar-menu .nav-link {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 15px;
+    text-shadow: 1px 1px 2px rgba(56, 56, 56, 0.4);
+    font-family: 'georgia bold', serif;
+}
+
+#sidebar-menu .nav-link.active {
+    background-color: #5e62b0;
+}
+
+#sidebar-menu .nav-link:not(.active):hover {
+    background-color: #a75e99;
+    transition: background-color 0.5s ease-in-out;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -moz-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+}
+
+.sidebar {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.burger-btn {
+    position: relative;
+    padding: 0;
+    display: block;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    z-index: 3;
+}
+
+.burger-btn .bar,
+.burger-btn::after,
+.burger-btn::before {
+    content: '';
+    padding: 0;
+    display: block;
+    width: 40px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+body.burger-menu .burger-btn:before {
+    transform: rotate(-90deg) translate(-10px, -10px);
+    -webkit-transform: rotate(-90deg) translate(-10px, -10px);
+    -moz-transform: rotate(-90deg) translate(-10px, -10px);
+    -ms-transform: rotate(-90deg) translate(-10px, -10px);
+    -o-transform: rotate(-90deg) translate(-10px, -10px);
+}
+
+body.burger-menu .burger-btn .bar {
+    transform: rotate(-90deg) translate(3px, 0px);
+    -webkit-transform: rotate(-90deg) translate(3px, 0px);
+    -moz-transform: rotate(-90deg) translate(3px, 0px);
+    -ms-transform: rotate(-90deg) translate(3px, 0px);
+    -o-transform: rotate(-90deg) translate(3px, 0px);
+}
+
+body.burger-menu .burger-btn::after {
+    transform: rotate(-90deg) translate(16px, 10px);
+    -webkit-transform: rotate(-90deg) translate(16px, 10px);
+    -moz-transform: rotate(-90deg) translate(16px, 10px);
+    -ms-transform: rotate(-90deg) translate(16px, 10px);
+    -o-transform: rotate(-90deg) translate(16px, 10px);
+}
+
+body.burger-menu .burger-btn:before,
+body.burger-menu .burger-btn .bar,
+body.burger-menu .burger-btn::after {
+    background-color: #fff;
+}
+
+/* SWITCHER */
+.switcher {
+    margin-top: 15px;
+}
+
+.toggle {
+    --width: 130px;
+    --height: calc(var(--width) / 3);
+    position: relative;
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: var(--height);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--height);
+    background-color: #ffd86f;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.toggle .slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--height));
+    height: calc(var(--height));
+    border-radius: calc(var(--height) / 2);
+    background-color: #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.toggle input:checked+.slider {
+    background-color: #ff7878;
+}
+
+.toggle input:checked+.slider::before {
+    transform: translateX(calc(var(--width) - var(--height)));
+}
+
+.toggle .labels {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.toggle .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 35px;
+    color: #ffffff;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.toggle .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: calc(var(--height) - var(--width) + 2px);
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.toggle input:checked~.labels::after {
+    opacity: 0;
+    transform: translateX(calc(var(--width) - var(--height)));
+    -webkit-transform: translateX(calc(var(--width) - var(--height)));
+    -moz-transform: translateX(calc(var(--width) - var(--height)));
+    -ms-transform: translateX(calc(var(--width) - var(--height)));
+    -o-transform: translateX(calc(var(--width) - var(--height)));
+}
+
+.toggle input:checked~.labels::before {
+    opacity: 1;
+    transform: translateX(calc(var(--width) - var(--height)));
+}
+
+@media all and (max-width: 768px) {
+    #header a {
+        font-size: 40px;
+    }
+}
+
+@media all and (max-width: 578px) {
+    #header a {
+        display: none;
+    }
+
+    .nav-container-burger .nav-items {
+        padding-left: 30px;
+    }
+
+    body .burger-menu .nav-container-burger {
+        width: 250px;
+    }
+
+    .nav-container-burger .nav-items .nav-item {
+        font-size: 15px;
+    }
+
+    #header-burger {
+        padding-left: 85px;
+        padding-top: 35px;
+    }
+
+    #header-burger a {
+        font-size: 30px;
+    }
+
+    .burger-btn .bar,
+    .burger-btn::after,
+    .burger-btn::before {
+        width: 30px;
+        height: 3px;
+    }
+
+    body.burger-menu .burger-btn:before {
+        transform: rotate(-90deg) translate(-8px, -10px);
+        -webkit-transform: rotate(-90deg) translate(-8px, -10px);
+        -moz-transform: rotate(-90deg) translate(-8px, -10px);
+        -ms-transform: rotate(-90deg) translate(-8px, -10px);
+        -o-transform: rotate(-90deg) translate(-8px, -10px);
+    }
+
+    body.burger-menu .burger-btn .bar {
+        transform: rotate(-90deg) translate(3px, 0px);
+        -webkit-transform: rotate(-90deg) translate(3px, 0px);
+        -moz-transform: rotate(-90deg) translate(3px, 0px);
+        -ms-transform: rotate(-90deg) translate(3px, 0px);
+        -o-transform: rotate(-90deg) translate(3px, 0px);
+    }
+
+    body.burger-menu .burger-btn::after {
+        transform: rotate(-90deg) translate(14px, 10px);
+        -webkit-transform: rotate(-90deg) translate(14px, 10px);
+        -moz-transform: rotate(-90deg) translate(14px, 10px);
+        -ms-transform: rotate(-90deg) translate(14px, 10px);
+        -o-transform: rotate(-90deg) translate(14px, 10px);
+    }
+
+}
