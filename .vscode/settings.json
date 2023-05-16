@@ -1,0 +1,5 @@
+{
+    "prettier.configPath": "",
+    "prettier.endOfLine": "lf",
+    "prettier.htmlWhitespaceSensitivity": "strict"
+}
