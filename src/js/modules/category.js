@@ -10,13 +10,12 @@ function loadCardsCategory(e) {
     main_container.innerHTML = '';
     const idCategory = e.currentTarget.dataset.id;
     const category = cards[idCategory].items;
-    let cardsCategory = [];
     for (let i = 0; i < category.length; i++) {
-        cardsCategory.push(
-            (new Cards(category[i].word, category[i].image)).createNode()
-        );
+        let col = document.createElement("div");
+        col.className = "col mb-5";
+        col.appendChild((new Cards(category[i].word, category[i].image)).createNode());
+        main_container.appendChild(col);
     }
-    appendChildren(main_container, ...cardsCategory);
 }
 
 export { main_container, card, loadCardsCategory }

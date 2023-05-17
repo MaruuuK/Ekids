@@ -24,6 +24,12 @@
 }
 
 @font-face {
+    font-family: 'comic bold';
+    src: url('../assets/Fonts/comicbd.ttf');
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'georgia bold';
     src: url('../assets/Fonts/georgiab.ttf');
     font-weight: bold;
@@ -37,7 +43,7 @@
 
 /* GENERAL */
 body {
-    background: #33b7e2;
+    background: #00C8F3;
     font-family: 'georgia normal', serif;
     font-weight: 400;
     font-size: 18px;
@@ -75,17 +81,17 @@ h4 {
 #header a {
     text-decoration: none;
     letter-spacing: 0.2em;
-    font-family: 'comic normal', serif;
+    font-family: 'comic bold', serif;
     font-size: 55px;
     text-shadow: 1px 1px 2px rgba(56, 56, 56, 0.4)
 }
 
 h1 a .word-1 {
-    color: #ff7878;
+    color: #FF6C8B;
 }
 
 h1 a .word-2 {
-    color: #ffd86f;
+    color: #FFB84C;
 }
 
 .header-container {
@@ -109,17 +115,17 @@ h1 a .word-2 {
 #header-burger a {
     text-decoration: none;
     letter-spacing: 0.2em;
-    font-family: 'comic normal', serif;
+    font-family: 'comic bold', serif;
     font-size: 33px;
     text-shadow: 1px 1px 2px rgba(56, 56, 56, 1);
 }
 
 #header-burger .word-1 {
-    color: #ff7878;
+    color: #FF6C8B;
 }
 
 #header-burger .word-2 {
-    color: #ffd86f;
+    color: #FFB84C;
 }
 
 .container-burger {
@@ -128,7 +134,7 @@ h1 a .word-2 {
 
 body .burger-menu .container-burger {
     position: fixed;
-    background: linear-gradient(40deg, #ffd86f, #ff7878);
+    background: linear-gradient(110deg, #FFB84C, #FF6C8B);
     display: block;
     left: -350px;
     top: 0;
@@ -160,11 +166,11 @@ body.burger-menu .container-burger {
 }
 
 #sidebar-menu .nav-link.active {
-    background-color: #5e62b0;
+    background-color: #4173E9;
 }
 
-#sidebar-menu .nav-link:not(.active):hover {
-    background-color: #a75e99;
+#sidebar-menu .nav-link:hover {
+    background-color: #A459D1;
     transition: background-color 0.5s ease-in-out;
     -webkit-transition: background-color 0.5s ease-in-out;
     -moz-transition: background-color 0.5s ease-in-out;
@@ -272,7 +278,7 @@ body.burger-menu .burger-btn::after {
     width: 100%;
     height: 100%;
     border-radius: var(--height);
-    background-color: #a75e99;
+    background-color: #FFB84C;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -298,7 +304,7 @@ body.burger-menu .burger-btn::after {
 }
 
 .toggle input:checked+.slider {
-    background-color: #ff7878;
+    background-color: #FF6C8B;
 }
 
 .toggle input:checked+.slider::before {
@@ -360,6 +366,31 @@ body.burger-menu .burger-btn::after {
 .toggle input:checked~.labels::before {
     opacity: 1;
     transform: translateX(calc(var(--width) - var(--height)));
+}
+
+/* CARD CONTENT */
+
+.card {
+    background: linear-gradient(180deg, #FFB84C, #FF6C8B);
+    width: 275px !important;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 5px 6px 17px #fefefe;
+    transition: 0.5s ease;
+}
+
+.card-title {
+    font-family: 'comic bold', serif;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+
+.play-mode {
+    background: linear-gradient(180deg, #FF6C8B, #FFB84C);
 }
 
 @media all and (max-width: 768px) {
