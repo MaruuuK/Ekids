@@ -17,4 +17,4 @@ import '../html/template.html';
 //Import JS
 import './modules/sidebar.js'
 import { main_container } from './modules/main_page';
-export { card, loadCardsCategory } from './modules/category';
+import { card, loadCardsCategory } from './modules/category';
