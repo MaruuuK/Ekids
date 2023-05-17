@@ -415,16 +415,15 @@ body.burger-menu .burger-btn::after {
     background: #A96BDE;
     border-bottom-right-radius: 13px;
     border-top-left-radius: 30px;
-    transition: 0.5s ease;
-    -webkit-transition: 0.5s ease;
-    -moz-transition: 0.5s ease;
-    -ms-transition: 0.5s ease;
-    -o-transition: 0.5s ease;
 }
 
-.fa-rotate:hover {
+.rotate .fa-rotate {
+    transition: transform 0.3s linear;
+}
+
+.rotate:hover .fa-rotate {
     cursor: pointer;
-    transform: rotate(90deg);
+    transform: scale(1.2) rotate(45deg);
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);

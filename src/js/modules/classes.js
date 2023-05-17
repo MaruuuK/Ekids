@@ -7,14 +7,14 @@ class Category {
     }
 
     createNode() {
-        let card = document.createElement("div");
-        card.className = "card rounded-4 mx-auto category";
-        card.setAttribute('data-id', `${this.id}`);
-        card.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.name}">
+        let node = document.createElement("div");
+        node.className = "card rounded-4 mx-auto category";
+        node.setAttribute('data-id', `${this.id}`);
+        node.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.name}">
                         <div class="card-body">
                             <h5 class="card-title text-center text-uppercase">${this.name}</h5>
                         </div>`;
-        return card;
+        return node;
     }
 }
 
@@ -26,11 +26,11 @@ class Card {
         this.audio = audio;
     }
 
-    createNode() {
-        let card = document.createElement("div");
-        card.className = "card rounded-4 mx-auto";
-        card.setAttribute('data-id', `${this.word}`);
-        card.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.word}">
+    createNode(id) {
+        let node = document.createElement("div");
+        node.className = "card rounded-4 mx-auto card-tile";
+        node.setAttribute('data-id', id);
+        node.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.word}">
                         <div class="card-body">
                             <div class="sound">
                                 <i class="fa-solid fa-music fa-xl" style="color: #ffffff;"></i>
@@ -40,7 +40,11 @@ class Card {
                             <i class="fa-solid fa-rotate fa-xl" style="color: #ffffff;"></i>
                             </div>
                         </div>`;
-        return card;
+        return node;
+    }
+
+    playAudio() {
+        (new Audio(this.audio)).play();
     }
 }
 

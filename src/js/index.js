@@ -17,4 +17,3 @@ import '../html/template.html';
 //Import JS
 import './modules/sidebar.js'
 import { main_container } from './modules/main_page';
-import { card, loadCardsCategory } from './modules/category';
