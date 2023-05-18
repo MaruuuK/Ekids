@@ -6,11 +6,11 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
-
 import '../styles/style.scss';
 import 'bootstrap';
 
 import '../styles/style.css';
+
 //Import HTML
 import '../html/template.html';
 

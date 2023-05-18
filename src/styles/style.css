@@ -35,11 +35,6 @@
     font-weight: bold;
 }
 
-@font-face {
-    font-family: 'georgia italic';
-    src: url('../assets/Fonts/georgiai.ttf');
-    font-weight: italic;
-}
 
 /* GENERAL */
 body {
@@ -104,8 +99,6 @@ h1 a .word-2 {
     overflow-y: auto;
     position: relative;
 }
-
-
 
 /* SIDEBAR MENU */
 #header-burger {
@@ -369,12 +362,15 @@ body.burger-menu .burger-btn::after {
 }
 
 /* CARD CONTENT */
-
 .card {
     background: linear-gradient(180deg, #FFB84C, #FF6C8B);
     width: 275px;
     border: none;
     transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
 }
 
 .card:hover {
@@ -435,6 +431,51 @@ body.burger-menu .burger-btn::after {
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
     color: #fff;
     text-align: center;
+}
+
+/* FLIPCARD */
+
+.flip-container {
+    perspective: 500px;
+}
+
+.card-tile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    -ms-transition: transform 1s;
+    -o-transition: transform 1s;
+
+}
+
+.card-tile.flipCard {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.back {
+    position: absolute;
+    transform: rotateY(180deg);
+}
+
+.back h5 {
+    font-size: 30px;
 }
 
 .play-mode {
