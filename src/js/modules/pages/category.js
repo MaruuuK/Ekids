@@ -1,17 +1,9 @@
-import { main_container } from "./main_page";
-import { categories, cards } from "./cards";
-import { navLinks } from "./sidebar";
+import { categories, cards } from "../cards";
+import { mainContent } from "../globals";
 
-
-const categoriesCards = document.querySelectorAll('.category');
-
-categoriesCards.forEach(category => category.addEventListener('click', loadCardsCategory));
-categoriesCards.forEach(category => category.addEventListener('click', handleCategoryMenu));
-
-function loadCardsCategory(e) {
-    main_container.innerHTML = '';
+export function loadPage(idCategory) {
+    mainContent.innerHTML = '';
     const nameCategory = document.querySelector(".name-category");
-    const idCategory = e.currentTarget.dataset.id;
 
     nameCategory.innerHTML = categories[idCategory].name;
 
@@ -21,7 +13,7 @@ function loadCardsCategory(e) {
         col.className = "col mb-5 flip-container";
         const cardId = category.cards[i];
         col.appendChild(cards[cardId].createNode(cardId));
-        main_container.appendChild(col);
+        mainContent.appendChild(col);
     }
 
     document.querySelectorAll('.card-tile .rotate').forEach(card => {
@@ -44,11 +36,3 @@ function loadCardsCategory(e) {
         });
     });
 }
-
-function handleCategoryMenu(e) {
-    [...navLinks].find(navLink => navLink.classList.contains('active')).classList.remove('active');
-    [...navLinks].find(navLink => navLink.dataset.id === e.currentTarget.dataset.id).classList.add('active');
-}
-
-
-export { main_container, loadCardsCategory, };
