@@ -1,11 +1,20 @@
 import { main_container } from "./main_page";
 import { categories, cards } from "./cards";
+import { navLinks } from "./sidebar";
 
-document.querySelectorAll('.category').forEach(category => category.addEventListener('click', loadCardsCategory));
+
+const categoriesCards = document.querySelectorAll('.category');
+
+categoriesCards.forEach(category => category.addEventListener('click', loadCardsCategory));
+categoriesCards.forEach(category => category.addEventListener('click', handleCategoryMenu));
 
 function loadCardsCategory(e) {
     main_container.innerHTML = '';
+    const nameCategory = document.querySelector(".name-category");
     const idCategory = e.currentTarget.dataset.id;
+
+    nameCategory.innerHTML = categories[idCategory].name;
+
     const category = categories[idCategory];
     for (let i = 0; i < category.cards.length; i++) {
         let col = document.createElement("div");
@@ -35,5 +44,11 @@ function loadCardsCategory(e) {
         });
     });
 }
+
+function handleCategoryMenu(e) {
+    [...navLinks].find(navLink => navLink.classList.contains('active')).classList.remove('active');
+    [...navLinks].find(navLink => navLink.dataset.id === e.currentTarget.dataset.id).classList.add('active');
+}
+
 
 export { main_container, loadCardsCategory, };

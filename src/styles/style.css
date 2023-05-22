@@ -50,6 +50,7 @@ body {
     font-weight: 400;
     font-size: 18px;
     letter-spacing: 0.06rem;
+    color: #fff;
 }
 
 
@@ -96,11 +97,6 @@ header {
     background: linear-gradient(90deg, var(--pacificBlue), var(--navyBlue));
 }
 
-.header-content {
-    margin: 0 25px;
-    position: sticky;
-    top: 0;
-}
 
 .header-container {
     padding: 20px;
@@ -163,6 +159,7 @@ body.burger-menu .container-burger {
 }
 
 #sidebar-menu .nav-link {
+    font-size: 17px;
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
@@ -336,7 +333,6 @@ body.burger-menu .burger-btn::after {
     content: attr(data-off);
     position: absolute;
     right: 35px;
-    color: #ffffff;
     opacity: 1;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
     transition: all 0.3s ease-in-out;
@@ -350,7 +346,6 @@ body.burger-menu .burger-btn::after {
     content: attr(data-on);
     position: absolute;
     left: calc(var(--height) - var(--width) + 2px);
-    color: #ffffff;
     opacity: 0;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
     transition: all 0.3s ease-in-out;
@@ -375,6 +370,13 @@ body.burger-menu .burger-btn::after {
 }
 
 /* CARD CONTENT */
+.name-category {
+    text-transform: uppercase;
+    font-family: 'georgia bold', serif;
+    font-size: 23px;
+    text-shadow: 1px 1px 2px rgba(56, 56, 56, 0.4);
+}
+
 .card {
     background: linear-gradient(180deg, var(--koromiko), var(--brinkPink));
     width: 275px;
@@ -494,6 +496,20 @@ body.burger-menu .burger-btn::after {
 .play-mode {
     background: linear-gradient(180deg, var(--brinkPink), var(--koromiko));
 }
+
+footer {
+    background: linear-gradient(90deg, var(--pacificBlue), var(--navyBlue));
+}
+
+footer p {
+    width: 100%;
+    text-align: center;
+    font-family: 'georgia bold', serif;
+    color: #fff;
+    margin: 0;
+}
+
+
 
 @media all and (max-width: 768px) {
     #header a {

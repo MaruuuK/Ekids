@@ -45,3 +45,5 @@ function handleMenuClick(e) {
         e.currentTarget.classList.add('active');
     }
 }
+
+export { navLinks }
