@@ -1,3 +1,5 @@
+import { sidebarMenu } from "./globals";
+
 class Category {
     constructor(name, id, image, cards) {
         this.name = name;
@@ -8,12 +10,15 @@ class Category {
 
     createNode() {
         let node = document.createElement("div");
-        node.className = "card rounded-4 mx-auto category";
-        node.setAttribute('data-id', `${this.id}`);
+        node.className = "card rounded-4 mx-auto";
         node.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.name}">
                         <div class="card-body">
                             <h5 class="card-title text-center text-uppercase">${this.name}</h5>
                         </div>`;
+        const id = this.id;
+        node.addEventListener('click', function () {
+            sidebarMenu.querySelector(`.nav-link[data-id="${id}"]`).click();
+        });
         return node;
     }
 }
@@ -45,6 +50,14 @@ class Card {
                           <div class="back card-body">
                                <h5 class="card-title text-center text-uppercase">${this.translation}</h5>
                           </div>`;
+        return node;
+    }
+
+    createNodeForGame(id) {
+        let node = document.createElement("div");
+        node.className = "card rounded-4 mx-auto w-100";
+        node.setAttribute('data-id', id);
+        node.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.word}">`;
         return node;
     }
 

@@ -15,5 +15,6 @@ import '../styles/style.css';
 import '../html/template.html';
 
 //Import JS
+import './modules/pages/main.js';
 import './modules/sidebar.js';
-import { main_container } from './modules/main_page';
+import './modules/play-mode';

@@ -1,8 +1,8 @@
-import { loadCardsCategory } from "./category";
-
+import { loadPage as loadCategoryPage } from "./pages/category";
+import { loadPage as loadGamePage } from "./pages/game";
+import { body } from "./globals";
 
 //BODY OVERLAY
-let body = document.querySelector('body');
 
 function closeOverlay() {
     body.classList.remove('overlay');
@@ -35,15 +35,20 @@ document.querySelector('.burger-btn').addEventListener('click', function () {
 //LINKS TO CATEGORIES
 
 const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(item => item.addEventListener('click', handleMenuClick));
 
-function handleMenuClick(e) {
+navLinks.forEach(item => item.addEventListener('click', function (e) {
     if (e.currentTarget.hasAttribute('data-id')) {
-        loadCardsCategory(e);
+        const id = e.currentTarget.dataset.id;
+        body.dataset["category_id"] = id;
+
+        if (body.classList.contains("play")) {
+            loadGamePage(id);
+        } else {
+            loadCategoryPage(id);
+        }
+
         closeOverlay();
         [...navLinks].find(navLink => navLink.classList.contains('active')).classList.remove('active');
         e.currentTarget.classList.add('active');
     }
-}
-
-export { navLinks }
+}));
