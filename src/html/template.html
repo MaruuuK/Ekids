@@ -106,12 +106,32 @@
         <div class="name-category pb-4"></div>
         <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4" id="main-content"></div>
     </main>
-    <footer>
-        <div class="game-menu"></div>
-        <p>2023 © LinguaKidz</p>
-        <div class="wrong"></div>
-        <div class="right"></div>
-    </footer>
+    <section id="game-bar" class="sticky-bottom">
+        <div class="miss"></div>
+        <div>
+            <button id="start-game-btn" class="btn-game"><i class="fa-regular fa-circle-play fa-2xl"></i></button>
+            <button id="repeat-game-btn" class="btn-game"><i class="fa-solid fa-rotate-right fa-2xl"></i></button>
+        </div>
+        <div class="win"></div>
+    </section>
+
+    <div class="modal fade" id="score-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Your score</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="win-title">You win!</h5>
+                    <div class="loose-block">
+                        <h5>You loose :(</h5>
+                        Wrong answers: <span class="wrong-score"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

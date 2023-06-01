@@ -1,4 +1,4 @@
-import { categories } from "../cards";
+import { categories } from "../data/categories";
 import { mainContent } from "../globals";
 
 for (let key in categories) {

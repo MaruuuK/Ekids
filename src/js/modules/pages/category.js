@@ -1,5 +1,7 @@
-import { categories, cards } from "../cards";
+import { categories } from "../data/categories";
+import { cards } from "../data/cards";
 import { mainContent } from "../globals";
+import { getCardsByCategory } from '../data/cards';
 
 export function loadPage(idCategory) {
     mainContent.innerHTML = '';
@@ -7,14 +9,12 @@ export function loadPage(idCategory) {
 
     nameCategory.innerHTML = categories[idCategory].name;
 
-    const category = categories[idCategory];
-    for (let i = 0; i < category.cards.length; i++) {
+    getCardsByCategory(idCategory).forEach((card) => {
         let col = document.createElement("div");
         col.className = "col mb-5 flip-container";
-        const cardId = category.cards[i];
-        col.appendChild(cards[cardId].createNode(cardId));
+        col.appendChild(card.createNode(card.id));
         mainContent.appendChild(col);
-    }
+    });
 
     document.querySelectorAll('.card-tile .rotate').forEach(card => {
         card.addEventListener('click', function (e) {

@@ -1,5 +1,6 @@
-import { categories, cards } from "../cards";
-import { mainContent } from "../globals";
+import { categories } from "../data/categories";
+import { mainContent, gameBar } from "../globals";
+import { getCardsByCategory } from '../data/cards';
 
 export function loadPage(idCategory) {
     mainContent.innerHTML = '';
@@ -7,12 +8,27 @@ export function loadPage(idCategory) {
 
     nameCategory.innerHTML = categories[idCategory].name;
 
-    const category = categories[idCategory];
-    for (let i = 0; i < category.cards.length; i++) {
+    getCardsByCategory(idCategory).forEach((card) => {
         let col = document.createElement("div");
         col.className = "col mb-5";
-        const cardId = category.cards[i];
-        col.appendChild(cards[cardId].createNodeForGame(cardId));
+        const cardNode = card.createNodeForGame(card.id);
+        col.appendChild(cardNode);
         mainContent.appendChild(col);
-    }
+
+        cardNode.addEventListener('click', function () {
+            if (cardNode.classList.contains('played')) {
+                return;
+            }
+            if (cardNode.classList.contains('playing')) {
+                gameBar.plusScore();
+                cardNode.classList.remove('playing');
+                cardNode.classList.add('played');
+                gameBar.startBtn.click();
+                return;
+            }
+            if (gameBar.startBtn.classList.contains('start')) {
+                gameBar.minusScore();
+            }
+        });
+    });
 }

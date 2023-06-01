@@ -53,6 +53,11 @@ body {
     color: #fff;
 }
 
+h1,
+h3,
+h4 {
+    margin: 0;
+}
 
 /* OVERLAY */
 body.overlay {
@@ -70,11 +75,10 @@ body.overlay::after {
     background-color: rgba(84, 84, 84, 0.5);
 }
 
-h1,
-h3,
-h4 {
-    margin: 0;
+body.play .card {
+    background: linear-gradient(180deg, var(--brinkPink), var(--koromiko));
 }
+
 
 /* HEADER */
 #header a {
@@ -143,7 +147,7 @@ body .burger-menu .container-burger {
     height: 100vh;
     width: 350px;
     transition: left 0.5s;
-    z-index: 2;
+    z-index: 3;
     -webkit-transition: left 0.5s ease;
     -moz-transition: left 0.5s;
     -ms-transition: left 0.5s;
@@ -197,7 +201,7 @@ body.burger-menu .container-burger {
     background: none;
     outline: none;
     border: none;
-    z-index: 3;
+    z-index: 4;
 }
 
 .burger-btn .bar,
@@ -394,6 +398,20 @@ body.burger-menu .burger-btn::after {
     box-shadow: 5px 6px 17px #fefefe;
 }
 
+.card.played {
+    opacity: 0.5;
+}
+
+.card.played:hover {
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+}
+
 .card-body {
     display: flex;
     align-items: center;
@@ -415,7 +433,6 @@ body.burger-menu .burger-btn::after {
 
 .card-tile {
     position: relative;
-    width: 100%;
     transition: transform 1s;
     transform-style: preserve-3d;
     -webkit-transition: transform 1s;
@@ -492,27 +509,98 @@ body.burger-menu .burger-btn::after {
     -o-transform: rotate(90deg);
 }
 
-.play-mode {
-    background: linear-gradient(180deg, var(--brinkPink), var(--koromiko));
+/* GAME MODE */
+#game-bar {
+    display: none;
 }
 
-footer {
+#game-bar.active {
+    display: flex;
     background: linear-gradient(90deg, var(--pacificBlue), var(--navyBlue));
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-top: var(--koromiko) 3px solid;
+    z-index: 2;
 }
 
-footer p {
-    width: 100%;
-    text-align: center;
-    font-family: 'georgia bold', serif;
+#repeat-game-btn,
+#start-game-btn {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    left: 45%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 0;
+    background-color: var(--koromiko);
     color: #fff;
-    margin: 0;
+}
+
+.btn-game:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 
+#game-bar.repeat #repeat-game-btn {
+    display: inline-block;
+}
+
+#repeat-game-btn,
+#game-bar.repeat #start-game-btn {
+    display: none;
+}
+
+#game-bar .miss,
+#game-bar .win {
+    color: var(--koromiko);
+    bottom: 7px;
+    position: absolute;
+    overflow: hidden;
+    height: 36px;
+}
+
+#game-bar .miss {
+    right: 60%;
+}
+
+#game-bar .win {
+    left: 55.5%;
+}
+
+
+.sticky-bottom {
+    z-index: 2;
+}
+
+#score-modal.won .win-title {
+    display: block;
+}
+
+#score-modal .win-title,
+#score-modal.won .loose-block {
+    display: none;
+}
 
 @media all and (max-width: 768px) {
     #header a {
         font-size: 40px;
+    }
+
+    #game-bar .win {
+        left: 58%;
+    }
+
+    #game-bar .miss {
+        right: 59%;
     }
 }
 
@@ -573,4 +661,22 @@ footer p {
         -o-transform: rotate(-90deg) translate(14px, 10px);
     }
 
+    #game-bar .win {
+        left: 70%;
+    }
+
+    #game-bar .miss {
+        right: 64%;
+    }
+}
+
+@media all and (max-width: 320px) {
+    #game-bar .miss {
+        right: 68%;
+    }
+
+    #repeat-game-btn,
+    #start-game-btn {
+        left: 40%;
+    }
 }

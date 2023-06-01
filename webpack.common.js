@@ -49,6 +49,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, 'src/assets/cards'), to: path.resolve(__dirname, 'dist', 'assets/cards') },
+                { from: path.resolve(__dirname, 'src/assets/play'), to: path.resolve(__dirname, 'dist', 'assets/play') }
             ],
         })
         ],

@@ -1,15 +1,15 @@
 import { loadPage as loadCategoryPage } from "./pages/category";
 import { loadPage as loadGamePage } from "./pages/game";
-import { body } from "./globals";
+import { gameBar } from './globals';
 
 //BODY OVERLAY
 
 function closeOverlay() {
-    body.classList.remove('overlay');
-    body.classList.remove('burger-menu');
+    document.body.classList.remove('overlay');
+    document.body.classList.remove('burger-menu');
 }
 
-body.addEventListener('click', function (e) {
+document.body.addEventListener('click', function (e) {
     if (e.target.nodeName === 'BODY' || e.target.className === "nav-item") {
         closeOverlay();
     }
@@ -24,11 +24,11 @@ window.addEventListener('keyup', function (e) {
 // SIDEBAR MENU
 
 document.querySelector('.burger-btn').addEventListener('click', function () {
-    if (body.classList.contains('burger-menu')) {
+    if (document.body.classList.contains('burger-menu')) {
         closeOverlay();
     } else {
-        body.classList.add('burger-menu');
-        body.classList.add('overlay');
+        document.body.classList.add('burger-menu');
+        document.body.classList.add('overlay');
     }
 });
 
@@ -39,12 +39,14 @@ const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(item => item.addEventListener('click', function (e) {
     if (e.currentTarget.hasAttribute('data-id')) {
         const id = e.currentTarget.dataset.id;
-        body.dataset["category_id"] = id;
+        document.body.dataset["category_id"] = id;
 
-        if (body.classList.contains("play")) {
+        if (document.body.classList.contains("play")) {
             loadGamePage(id);
+            gameBar.activate();
         } else {
             loadCategoryPage(id);
+            gameBar.deactivate();
         }
 
         closeOverlay();
