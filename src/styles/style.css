@@ -581,13 +581,41 @@ body.burger-menu .burger-btn::after {
     z-index: 2;
 }
 
-#score-modal.won .win-title {
+#score-modal.won .win-block {
     display: block;
 }
 
-#score-modal .win-title,
+#score-modal .win-block,
 #score-modal.won .loose-block {
     display: none;
+}
+
+.modal-content {
+    background: linear-gradient(180deg, var(--koromiko), var(--brinkPink));
+    width: 450px;
+    height: 300px;
+}
+
+.win-title,
+.loose-block h5 {
+    text-transform: uppercase;
+    font-family: 'comic bold', serif;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+    letter-spacing: 0.2em;
+}
+
+.loose-block h5 {
+    padding-bottom: 10px;
+}
+
+.win-block img,
+.loose-block img {
+    width: 250px;
+    display: block;
+    margin: auto;
+
 }
 
 @media all and (max-width: 768px) {

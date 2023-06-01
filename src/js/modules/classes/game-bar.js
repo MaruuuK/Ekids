@@ -56,8 +56,14 @@ export class GameBar {
             await (new Audio('../assets/play/audio/win.mp3')).play();
             this.scoreModalNode.classList.add('won');
         }
+
         this.resetGame();
+
+        setTimeout(() => {
+            window.location.href = '/';;
+        }, 5500);
     }
+
     resetGame() {
         this.node.classList.remove('repeat');
         this.card = undefined;
