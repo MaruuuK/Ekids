@@ -15,19 +15,19 @@ export function loadPage(idCategory) {
         col.appendChild(cardNode);
         mainContent.appendChild(col);
 
-        cardNode.addEventListener('click', function () {
+        cardNode.addEventListener('click', async function () {
             if (cardNode.classList.contains('played')) {
                 return;
             }
             if (cardNode.classList.contains('playing')) {
-                gameBar.plusScore();
+                await gameBar.plusScore();
                 cardNode.classList.remove('playing');
                 cardNode.classList.add('played');
                 gameBar.startBtn.click();
                 return;
             }
             if (gameBar.startBtn.classList.contains('start')) {
-                gameBar.minusScore();
+                await gameBar.minusScore(gameBar.card);
             }
         });
     });

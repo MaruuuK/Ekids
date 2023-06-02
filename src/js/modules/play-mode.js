@@ -14,13 +14,13 @@ checkbox.addEventListener("change", function (e) {
     }
 });
 
-gameBar.startBtn.addEventListener('click', function () {
+gameBar.startBtn.addEventListener('click', async function () {
     let cards = getCardsByCategory(document.body.dataset["category_id"]).filter((card) => {
         return !card.getNode().classList.contains('played');
     });
     gameBar.startBtn.classList.add('start');
     if (cards.length === 0) {
-        gameBar.endGame();
+        await gameBar.endGame();
 
         getCardsByCategory(document.body.dataset["category_id"]).forEach((card) => {
             card.getNode().classList.remove('played');

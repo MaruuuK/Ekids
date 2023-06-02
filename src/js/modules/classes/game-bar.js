@@ -15,7 +15,7 @@ export class GameBar {
         this.scoreModalNode = document.getElementById('score-modal');
         this.scoreModal = new Modal(this.scoreModalNode);
         this.wrongScore = this.scoreModalNode.querySelector('.wrong-score');
-        this.wrongAnswers = 0;
+        this.wrongAnswers = {};
     }
 
     activate() {
@@ -40,16 +40,24 @@ export class GameBar {
         await (new Audio('../assets/play/audio/plus.mp3')).play();
     }
 
-    async minusScore() {
-        this.wrongAnswers += 1;
+    async minusScore(card) {
+        if (this.wrongAnswers[card.word] === undefined) {
+            this.wrongAnswers[card.word] = 0;
+        }
+        this.wrongAnswers[card.word] += 1;
         this.missBlock.appendChild(missNode);
         await (new Audio('../assets/play/audio/minus.mp3')).play();
     }
 
     async endGame() {
         this.scoreModal.show();
-        if (this.wrongAnswers > 0) {
-            this.wrongScore = this.wrongAnswers;
+        if (Object.keys(this.wrongAnswers).length > 0) {
+            this.wrongScore.innerHTML = '';
+            for (let k in this.wrongAnswers) {
+                const li = document.createElement('li');
+                li.innerHTML = `${k}: ${this.wrongAnswers[k]}`;
+                this.wrongScore.appendChild(li);
+            }
             await (new Audio('../assets/play/audio/fail.mp3')).play();
             this.scoreModalNode.classList.remove('won');
         } else {
@@ -67,7 +75,7 @@ export class GameBar {
     resetGame() {
         this.node.classList.remove('repeat');
         this.card = undefined;
-        this.wrongAnswers = 0;
+        this.wrongAnswers = {};
         this.winBlock.innerHTML = '';
         this.missBlock.innerHTML = '';
     }

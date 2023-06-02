@@ -590,10 +590,11 @@ body.burger-menu .burger-btn::after {
     display: none;
 }
 
+/*MODAL WINDOW*/
 .modal-content {
     background: linear-gradient(180deg, var(--koromiko), var(--brinkPink));
     width: 450px;
-    height: 300px;
+    min-height: 300px;
 }
 
 .win-title,
