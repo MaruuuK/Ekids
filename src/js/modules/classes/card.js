@@ -1,17 +1,17 @@
-export class Card {
-    constructor(id, word, image, translation, audio) {
-        this.id = id;
-        this.word = word;
-        this.image = image;
-        this.translation = translation;
-        this.audio = audio;
-    }
+export default class Card {
+  constructor(id, word, image, translation, audio) {
+    this.id = id;
+    this.word = word;
+    this.image = image;
+    this.translation = translation;
+    this.audio = audio;
+  }
 
-    createNode() {
-        let node = document.createElement("div");
-        node.className = "card rounded-4 mx-auto card-tile";
-        node.setAttribute('data-id', this.id);
-        node.innerHTML = `<div class="front">
+  createNode() {
+    const node = document.createElement('div');
+    node.className = 'card rounded-4 mx-auto card-tile';
+    node.setAttribute('data-id', this.id);
+    node.innerHTML = `<div class="front">
                              <img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.word}">
                              <div class="card-body">
                                <div class="sound">
@@ -26,22 +26,22 @@ export class Card {
                           <div class="back card-body">
                                <h5 class="card-title text-center text-uppercase">${this.translation}</h5>
                           </div>`;
-        return node;
-    }
+    return node;
+  }
 
-    createNodeForGame() {
-        let node = document.createElement("div");
-        node.className = "card rounded-4 mx-auto";
-        node.setAttribute('data-id', this.id);
-        node.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.word}">`;
-        return node;
-    }
+  createNodeForGame() {
+    const node = document.createElement('div');
+    node.className = 'card rounded-4 mx-auto';
+    node.setAttribute('data-id', this.id);
+    node.innerHTML = `<img src="${this.image}" class="card-img-top p-2 rounded-4" alt="${this.word}">`;
+    return node;
+  }
 
-    async playAudio() {
-        await (new Audio(this.audio)).play();
-    }
+  async playAudio() {
+    await (new Audio(this.audio)).play();
+  }
 
-    getNode() {
-        return document.querySelector(`[data-id=${this.id}]`);
-    }
+  getNode() {
+    return document.querySelector(`[data-id=${this.id}]`);
+  }
 }

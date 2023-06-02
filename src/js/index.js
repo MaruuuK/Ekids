@@ -9,13 +9,12 @@ import '@fortawesome/fontawesome-free/js/brands';
 import 'bootstrap';
 import '../styles/style.scss';
 
-
 import '../styles/style.css';
 
-//Import HTML
+// Import HTML
 import '../html/template.html';
 
-//Import JS
-import './modules/pages/main.js';
-import './modules/sidebar.js';
+// Import JS
+import './modules/pages/main';
+import './modules/sidebar';
 import './modules/play-mode';
