@@ -1,5 +1,6 @@
 import loadCategoryPage from './pages/category';
 import loadGamePage from './pages/game';
+import loadStatisticsPage from './pages/statistics';
 import { gameBar } from './globals';
 
 // BODY OVERLAY
@@ -48,9 +49,12 @@ navLinks.forEach((item) => item.addEventListener('click', (e) => {
       loadCategoryPage(id);
       gameBar.deactivate();
     }
-
-    closeOverlay();
-    [...navLinks].find((navLink) => navLink.classList.contains('active')).classList.remove('active');
-    e.currentTarget.classList.add('active');
+  } else {
+    loadStatisticsPage();
+    gameBar.deactivate();
   }
+
+  closeOverlay();
+  [...navLinks].find((navLink) => navLink.classList.contains('active')).classList.remove('active');
+  e.currentTarget.classList.add('active');
 }));

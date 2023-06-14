@@ -613,6 +613,54 @@ body.burger-menu .burger-btn::after {
 
 }
 
+/* STATISTICS */
+.mb-3 .btn-light {
+  background-color: #A96BDE;
+  color: #fff;
+  font-family: 'georgia bold', serif;
+  border: 1px #A96BDE solid;
+  box-shadow: 1px 1px 2px rgba(56, 56, 56, 0.4);
+  padding: 5px;
+}
+
+.mb-3 .btn-light:hover {
+  background-color: #643190;
+  transition: background-color .5s ease-in-out;
+}
+
+
+#statistics-table tr {
+  color: #fff;
+}
+
+
+#statistics-table th {
+  cursor: pointer;
+  color: var(--koromiko);
+  text-shadow: 1px 1px 2px rgba(56, 56, 56, 0.4);
+  font-family: 'comic bold', serif;
+}
+
+#statistics-table th .fa-chevron-down {
+  opacity: 0.3;
+  padding: 10px;
+}
+
+#statistics-table th.sort .fa-chevron-down {
+  opacity: 1;
+}
+
+#statistics-table th.sort-desc svg {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  position: relative;
+  top: 2px;
+}
+
+
 @media all and (max-width: 768px) {
   #header a {
     font-size: 40px;
@@ -626,6 +674,7 @@ body.burger-menu .burger-btn::after {
     right: 59%;
   }
 }
+
 
 @media all and (max-width: 578px) {
   #header a {

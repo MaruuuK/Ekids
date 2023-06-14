@@ -1,19 +1,28 @@
 import categories from '../data/categories';
-import { cards, getCardsByCategory } from '../data/cards';
-import { mainContent } from '../globals';
+import { cards, getCardsByCategory, getCardsById } from '../data/cards';
+import { mainContent, statStorage } from '../globals';
 
 export default function loadPage(idCategory) {
-  mainContent.innerHTML = '';
-  const nameCategory = document.querySelector('.name-category');
+  if (!Array.isArray(idCategory)) {
+    mainContent.innerHTML = `<div class="name-category pb-4">${categories[idCategory].name}</div>`;
+  }
 
-  nameCategory.innerHTML = categories[idCategory].name;
+  const row = document.createElement('div');
+  row.className = 'row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4';
+  mainContent.appendChild(row);
 
-  getCardsByCategory(idCategory).forEach((card) => {
+  function createCard(card) {
     const col = document.createElement('div');
     col.className = 'col mb-5 flip-container';
     col.appendChild(card.createNode(card.id));
-    mainContent.appendChild(col);
-  });
+    row.appendChild(col);
+  }
+
+  if (Array.isArray(idCategory)) {
+    getCardsById(idCategory).forEach((card) => createCard(card));
+  } else {
+    getCardsByCategory(idCategory).forEach((card) => createCard(card));
+  }
 
   document.querySelectorAll('.card-tile .rotate').forEach((card) => {
     card.addEventListener('click', (e) => {
@@ -22,15 +31,17 @@ export default function loadPage(idCategory) {
     });
   });
 
-  document.querySelectorAll('.card-tile').forEach((card) => {
-    card.closest('.flip-container').addEventListener('mouseleave', () => {
-      card.classList.remove('flipCard');
+  document.querySelectorAll('.card-tile').forEach((cardNode) => {
+    cardNode.closest('.flip-container').addEventListener('mouseleave', () => {
+      cardNode.classList.remove('flipCard');
     });
-    card.addEventListener('click', (e) => {
-      if (card.classList.contains('flipCard')) {
+    cardNode.addEventListener('click', (e) => {
+      if (cardNode.classList.contains('flipCard')) {
         e.stopPropagation();
       } else {
-        cards[e.currentTarget.dataset.id].playAudio();
+        const card = cards[e.currentTarget.dataset.id];
+        statStorage.addClick(card.id);
+        card.playAudio();
       }
     });
   });

@@ -79,3 +79,11 @@ export function getCardsByCategory(id) {
 
   return result;
 }
+
+export function getCardsById(words) {
+  const result = [];
+  for (let i = 0; i < words.length; i += 1) {
+    result.push(cards[words[i]]);
+  }
+  return result;
+}
