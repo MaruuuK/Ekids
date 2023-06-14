@@ -643,7 +643,7 @@ body.burger-menu .burger-btn::after {
 
 #statistics-table th .fa-chevron-down {
   opacity: 0.3;
-  padding: 10px;
+  padding: 2px;
 }
 
 #statistics-table th.sort .fa-chevron-down {
