@@ -1,0 +1,52 @@
+{
+  "name": "ekids",
+  "version": "1.0.0",
+  "description": "English learning app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --config webpack.dev.js ",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ekids"
+  },
+  "keywords": [
+    "learning",
+    "kids",
+    "english"
+  ],
+  "author": "Mariia",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "postcss": "^8.4.23",
+    "postcss-loader": "^7.3.0",
+    "rucksack-css": "^1.0.2",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@popperjs/core": "^2.11.7",
+    "bootstrap": "^5.2.3"
+  }
+}
